@@ -13,7 +13,7 @@ const r = new Snoowrap({
 });
 
 const stream = new CommentStream(r, { subreddit: "freefolk", results: 25 });
-const count = 0;
+var count = 0;
 stream.on("item", function(comment) {
     if (comment.body.includes('D&D') && comment.author_fullname !== 't2_94572vkq') {
         console.log(comment);
