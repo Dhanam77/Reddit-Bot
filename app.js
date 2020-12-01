@@ -14,7 +14,7 @@ const r = new Snoowrap({
 
 const stream = new CommentStream(r, { subreddit: "freefolk", results: 25 });
 
-stream.on("item", comment => {
+stream.on("item", function(comment) {
     if (comment.body.includes('D&D') && comment.author_fullname !== 't2_94572vkq') {
         console.log(comment);
         comment.reply('Fuck D&D');  
@@ -27,4 +27,4 @@ stream.on("item", comment => {
         console.log(comment);
         comment.reply('Fuck DnD');
     }
-})
+});
