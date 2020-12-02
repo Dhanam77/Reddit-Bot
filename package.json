@@ -20,5 +20,8 @@
     "dotenv": "^8.2.0",
     "snoostorm": "^1.5.2",
     "snoowrap": "^1.21.0"
+  },
+  "engines": {
+    "node": "12.14.1"
   }
 }
