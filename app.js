@@ -12,22 +12,29 @@ const r = new Snoowrap({
 	password: process.env.REDDIT_PASS
 });
 
-const stream = new CommentStream(r, { subreddit: "freefolk", results: 25 });
+const stream = new CommentStream(r, { subreddit: "freefolk", results: 25});
 var count = 0;
+const  my_author_id = 't2_94572vkq';
+const already_commented = false;
 stream.on("item", function(comment) {
-    if (comment.body.includes('D&D') && comment.author_fullname !== 't2_94572vkq') {
-        console.log(comment);
-        console.log(++count);
-        comment.reply('Fuck D&D');  
-    }
-    else if(comment.body.includes('2D') && comment.author_fullname !== 't2_94572vkq'){
-        console.log(comment);
-        console.log(++count);
-        comment.reply('Fuck 2D');
-    }
-    else if(comment.body.includes('DnD') && comment.author_fullname !== 't2_94572vkq'){
-        console.log(comment);
-        console.log(++count);
-        comment.reply('Fuck DnD');
+    if(comment.author_fullname !== my_author_id){
+        if(!already_commented){
+            if (comment.body.includes('D&D')) {
+                console.log(comment);
+                console.log(comment.replies);
+                console.log(++count);
+                comment.reply('I say, fuck D&D');  
+            }
+            else if(comment.body.includes('2D')){
+                console.log(comment);
+                console.log(++count);
+                comment.reply('Fuck 2D');                
+            }
+            else if(comment.body.includes('DnD')){
+                console.log(comment);
+                console.log(++count);
+                comment.reply('Fuck DnD');
+            } 
+        }
     }
 });
