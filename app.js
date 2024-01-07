@@ -52,7 +52,7 @@ stream.on("item", async function (comment) {
         else if (comment.body.includes('DnD')) {
             console.log(comment);
             console.log(++count);
-            comment.reply('Fuck DnD');
+            comment.reply('Hi DnD');
             const repliedToObject = new repliedTo({
                 comment_id: comment.id
             });
