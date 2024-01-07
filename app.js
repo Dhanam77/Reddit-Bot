@@ -29,7 +29,7 @@ stream.on("item", async function (comment) {
         if (comment.body.includes('D&D')) {
             console.log(comment);
             console.log(++count);
-            comment.reply('Fuck D&D');
+            comment.reply('Hi D&D');
             const repliedToObject = new repliedTo({
                 comment_id: comment.id
             });
@@ -43,7 +43,7 @@ stream.on("item", async function (comment) {
         else if (comment.body.includes('2D')) {
             console.log(comment);
             console.log(++count);
-            comment.reply('Fuck 2D');
+            comment.reply('Hi 2D');
             const repliedToObject = new repliedTo({
                 comment_id: comment.id
             });
